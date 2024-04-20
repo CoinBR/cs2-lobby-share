@@ -15,6 +15,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from comtypes import CLSCTX_ALL
 import ctypes 
+from cfg import discord
 from cfg import github
 from cfg import apps
 from cfg import urls
@@ -22,6 +23,7 @@ from cfg.vetos import vetos
 from browser import Browser
 from retrier import retry_until_ready
 import gist
+import discord_bot
 
 
 def print_full_qualified_path(e):
@@ -132,6 +134,7 @@ def prepare_voicemeeter():
     
     
 def copy_lobby_link_button():
+    print("Copying lobby URL to clipboard...")
     return Browser.lookup().css("#lobby-copy-trigger")
     
 def is_on_lobby():
@@ -163,12 +166,15 @@ def create_lobby():
     print("Unchecking the option to save lobby configs...")
     Browser.lookup().text("Salvar configurações para a sua próxima lobby").click()
     
+    print("Creating the Lobby...")
     Browser.lookup().button_or_link_with_text("Criar Sala").click()
 
-def share_with_friends(message):
-    gist.update(github.access_token, github.gist_id, github.gist_filename, message)
+def share_with_friends(msg):
+    print("Sharing lobby URL on Discord...")
+    discord_bot.send_msg(discord.token, discord.channel_id, msg)
     
-
+    print("Sharing lobby URL on GitHub Gist...")
+    gist.update(github.access_token, github.gist_id, github.gist_filename, msg)
     
 
 def share_lobby():

@@ -1,7 +1,6 @@
 # CS2 Lobby Share
 
-### TLDR: This script automates the process of initiating the GamersClub anti-cheater, launching Counter-Strike, setting up a game lobby, and sharing the lobby link with friend
-### TLDR: Script in Action: https://youtu.be/ltXLghu88d0
+### TLDR: This script automates the process of initiating the GamersClub anti-cheater, launching Counter-Strike, setting up a game lobby, and sharing the lobby link with friends.
 
 Counter-Strike, a beloved first-person shooter game, becomes even more thrilling when played among friends. Yet, the presence of cheaters, using unauthorized hacks for advantages like seeing through walls and perfect aiming, can spoil the fun.
 
